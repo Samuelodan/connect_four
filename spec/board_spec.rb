@@ -20,5 +20,20 @@ RSpec.describe Board do
         expect(result).to be(true)
       end
     end
+
+    context 'when there are less than 4 consecutive symbols' do
+      before do
+        symbol = "\u2648"
+        board.grid[8],
+        board.grid[15],
+        board.grid[24],
+        board.grid[18] = Array.new(4, symbol)
+      end
+
+      it 'returns false' do
+        result = board.found_four?
+        expect(result).to be(false)
+      end
+    end
   end
 end
