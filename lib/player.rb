@@ -9,6 +9,8 @@ class Player
 
   def set_symbol(sym)
     return unless sym.is_a?(String)
+    return if sym.is_a?(String) && !sym.match?(/^\W{1}/)
+
     @symbol = sym
   end
 end
