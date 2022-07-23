@@ -14,4 +14,11 @@ RSpec.describe Player do
       end
     end
   end
+
+  context 'when argument is invalid' do
+    xit 'does nothing' do
+      sym_arg = 35
+      expect { player.set_symbol(sym_arg) }.to_not change { player.symbol }
+    end
+  end
 end
