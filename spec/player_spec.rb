@@ -6,9 +6,9 @@ RSpec.describe Player do
   subject(:player) { described_class.new }
 
   describe '#set_symbol' do
-    context 'when argument is a string' do
+    context 'when argument is a valid string' do
       it 'changes @symbol to passed in symbol' do
-        sym_arg = '\u2648'
+        sym_arg = "\u2648"
         player.set_symbol(sym_arg)
         expect(player.symbol).to eq(sym_arg)
       end
@@ -21,9 +21,9 @@ RSpec.describe Player do
       end
     end
 
-    context 'when argument is a string but still invalid' do
+    context 'when argument is invalid (a word character string)' do
       it 'does nothing' do
-        sym_arg = '35'
+        sym_arg = '33'
         expect { player.set_symbol(sym_arg) }.to_not change { player.symbol }
       end
     end
