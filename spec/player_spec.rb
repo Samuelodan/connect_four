@@ -27,5 +27,12 @@ RSpec.describe Player do
         expect { player.set_symbol(sym_arg) }.to_not change { player.symbol }
       end
     end
+
+    context 'when argument is a non-word char string but length > 1' do
+      it 'does nothing' do
+        sym_arg = '&#'
+        expect { player.set_symbol(sym_arg) }.to_not change { player.symbol }
+      end
+    end
   end
 end
