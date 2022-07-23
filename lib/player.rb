@@ -8,6 +8,7 @@ class Player
   end
 
   def set_symbol(sym)
+    return unless sym.is_a?(String)
     @symbol = sym
   end
 end
