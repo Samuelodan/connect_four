@@ -24,8 +24,11 @@ class Board
   end
 
   def drop(count:, symbol:)
-    COLUMNS[count - 1].each do |position|
-      grid[position] ||= symbol
+    COLUMNS[count - 1].reverse_each do |position|
+      unless grid[position]
+        grid[position] = symbol
+        return
+      end
     end
   end
 end
