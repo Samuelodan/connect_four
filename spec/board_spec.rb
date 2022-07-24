@@ -34,5 +34,20 @@ RSpec.describe Board do
         expect(board.grid[35]).to eq(symbol)
       end
     end
+
+    context 'when column 1 has 4 symbols' do
+      before do
+        symbol = "\u2648"
+        board.grid[35], board.grid[28],
+        board.grid[21], board.grid[14] = Array.new(4, symbol)
+      end
+
+      it 'drops item into the grid' do
+        symbol = "\u2648"
+        column_no = 1
+        board.drop(count: column_no, symbol: symbol)
+        expect(board.grid[7]).to eq(symbol)
+      end
+    end
   end
 end
