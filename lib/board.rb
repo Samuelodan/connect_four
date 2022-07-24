@@ -34,8 +34,6 @@ class Board
 
   def column_full?(column:)
     col_array = COLUMNS[column - 1].map { |index| grid[index] }
-    original_length = col_array.length
-    new_length = col_array.compact.length
-    new_length == original_length
+    col_array.length == col_array.compact.length
   end
 end
