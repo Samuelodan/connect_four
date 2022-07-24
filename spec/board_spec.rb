@@ -24,4 +24,15 @@ RSpec.describe Board do
       end
     end
   end
+
+  describe '#drop' do
+    context 'when column 1 is empty' do
+      it 'drops item into the grid' do
+        symbol = "\u2648"
+        column_no = 1
+        board.drop(count: column_no, symbol: symbol)
+        expect(board.grid[35]).to eq(symbol)
+      end
+    end
+  end
 end
