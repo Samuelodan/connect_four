@@ -33,6 +33,13 @@ RSpec.describe Board do
         board.drop(count: column_no, symbol: symbol)
         expect(board.grid[35]).to eq(symbol)
       end
+
+      it 'second slot is nil' do
+        symbol = "\u2648"
+        column_no = 1
+        board.drop(count: column_no, symbol: symbol)
+        expect(board.grid[28]).to be(nil)
+      end
     end
 
     context 'when column 1 has 4 symbols' do
