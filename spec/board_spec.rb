@@ -64,4 +64,19 @@ RSpec.describe Board do
       end
     end
   end
+
+  describe '#column_full?' do
+    context 'when column is not full' do
+      before do
+        symbol = "\u2648"
+        board.grid[36], board.grid[29],
+        board.grid[22], board.grid[15] = Array.new(4, symbol)
+      end
+
+      it 'returns false' do
+        result = board.column_full?(column: 2)
+        expect(result).to be(false)
+      end
+    end
+  end
 end
