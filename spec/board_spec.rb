@@ -55,6 +55,13 @@ RSpec.describe Board do
         board.drop(count: column_no, symbol: symbol)
         expect(board.grid[7]).to eq(symbol)
       end
+
+      it 'top slot is empty' do
+        symbol = "\u2648"
+        column_no = 1
+        board.drop(count: column_no, symbol: symbol)
+        expect(board.grid[0]).to be(nil)
+      end
     end
   end
 end
