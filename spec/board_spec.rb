@@ -78,5 +78,19 @@ RSpec.describe Board do
         expect(result).to be(false)
       end
     end
+
+    context 'when column is full' do
+      before do
+        symbol = "\u2648"
+        board.grid[36], board.grid[29],
+        board.grid[22], board.grid[15],
+        board.grid[8], board.grid[1] = Array.new(6, symbol)
+      end
+
+      xit 'returns true' do
+        result = board.column_full?(column: 2)
+        expect(result).to be(true)
+      end
+    end
   end
 end
