@@ -150,5 +150,18 @@ RSpec.describe Board do
         expect(result).to be(true)
       end
     end
+
+    context 'when there are 4 successive symbols diagonally' do
+      before do
+        current_player_sym = "\e[91m\u25CF\e[0m"
+        board.grid[19], board.grid[25],
+        board.grid[31], board.grid[37] = Array.new(4, current_player_sym)
+      end
+
+      it 'returns true' do
+        result = board.find_win?
+        expect(result).to be(true)
+      end
+    end
   end
 end
