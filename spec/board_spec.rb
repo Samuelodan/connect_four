@@ -10,7 +10,7 @@ RSpec.describe Board do
       it 'returns true' do
         symbol = "\e[91m\u25CF\e[0m"
         line = ['bread', symbol, symbol, symbol, symbol, 'john']
-        result = board.found_four?(symbol ,line)
+        result = board.found_four?(choice: symbol ,array: line)
         expect(result).to be(true)
       end
     end
@@ -19,7 +19,7 @@ RSpec.describe Board do
       it 'returns false' do
         symbol = "\e[91m\u25CF\e[0m"
         line = ['bread', symbol, symbol, 'judas', symbol, symbol]
-        result = board.found_four?(symbol, line)
+        result = board.found_four?(choice: symbol, array: line)
         expect(result).to be(false)
       end
     end

@@ -11,10 +11,10 @@ class Board
     @grid = Array.new(42)
   end
 
-  def found_four?(choice, arr)
+  def found_four?(choice:, array:)
     count = 0
-    arr.each_with_index do |item, idx|
-      if item == choice && arr.at(idx + 1) == choice
+    array.each_with_index do |item, idx|
+      if item == choice && array.at(idx + 1) == choice
         count += 1
       end
       count = 0 if item != choice
