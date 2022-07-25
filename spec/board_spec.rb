@@ -93,4 +93,20 @@ RSpec.describe Board do
       end
     end
   end
+
+  describe '#moves_left?' do
+    context 'when there are no moves left' do
+      before do
+        symbol = "\e[91m\u25CF\e[0m"
+        board.grid.each_index do |index|
+          board.grid[index] = symbol
+        end
+      end
+
+      it 'returns false' do
+        result = board.moves_left?
+        expect(result).to be(false)
+      end
+    end
+  end
 end
