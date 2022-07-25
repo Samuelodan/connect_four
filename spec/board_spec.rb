@@ -163,5 +163,18 @@ RSpec.describe Board do
         expect(result).to be(true)
       end
     end
+
+    context 'when there are < 4 successive symbols in any direction' do
+      before do
+        current_player_sym = "\e[91m\u25CF\e[0m"
+        board.grid[1], board.grid[12],
+        board.grid[13], board.grid[30] = Array.new(4, current_player_sym)
+      end
+
+      it 'returns false' do
+        result = board.find_win?
+        expect(result).to be(false)
+      end
+    end
   end
 end
