@@ -36,4 +36,8 @@ class Board
     col_array = COLUMNS[column - 1].map { |index| grid[index] }
     col_array.length == col_array.compact.length
   end
+
+  def moves_left?
+    grid.any? { |item| item == nil }
+  end
 end
