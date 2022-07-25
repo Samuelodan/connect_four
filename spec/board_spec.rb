@@ -108,5 +108,19 @@ RSpec.describe Board do
         expect(result).to be(false)
       end
     end
+
+    context 'when there are moves left' do
+      before do
+        symbol = "\e[91m\u25CF\e[0m"
+        board.grid.each_index do |index|
+          board.grid[index] = symbol if index < board.grid.length - 1
+        end
+      end
+
+      it 'returns true' do
+        result = board.moves_left?
+        expect(result).to be(true)
+      end
+    end
   end
 end
