@@ -123,4 +123,19 @@ RSpec.describe Board do
       end
     end
   end
+
+  describe '#find_win?' do
+    context 'when there are 4 successive symbols vertically' do
+      before do
+        current_player_sym = "\e[91m\u25CF\e[0m"
+        board.grid[31], board.grid[24],
+        board.grid[17], board.grid[10] = Array.new(4, current_player_sym)
+      end
+
+      it 'returns true' do
+        result = board.find_win?
+        expect(result).to be(true)
+      end
+    end
+  end
 end
