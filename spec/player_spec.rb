@@ -8,7 +8,7 @@ RSpec.describe Player do
   describe '#set_symbol' do
     context 'when argument is a valid string' do
       it 'changes @symbol to passed in symbol' do
-        sym_arg = "\u2648"
+        sym_arg = "\e[91m\u25CF\e[0m"
         player.set_symbol(sym_arg)
         expect(player.symbol).to eq(sym_arg)
       end
@@ -21,16 +21,9 @@ RSpec.describe Player do
       end
     end
 
-    context 'when argument is invalid (a word character string)' do
+    context 'when argument is invalid (starts with word characters)' do
       it 'does nothing' do
         sym_arg = '33'
-        expect { player.set_symbol(sym_arg) }.to_not change { player.symbol }
-      end
-    end
-
-    context 'when argument is a non-word char string but length > 1' do
-      it 'does nothing' do
-        sym_arg = '&#'
         expect { player.set_symbol(sym_arg) }.to_not change { player.symbol }
       end
     end
