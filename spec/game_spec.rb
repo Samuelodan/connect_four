@@ -27,4 +27,13 @@ RSpec.describe Game do
       end
     end
   end
+
+  describe '#assign_names' do
+    context 'for player 1' do
+      it "Changes player1's name from nil" do
+        desired_name = 'Player1'
+        expect { game.assign_names }.to change { game.player1.name }.from(nil).to(desired_name)
+      end
+    end
+  end
 end
