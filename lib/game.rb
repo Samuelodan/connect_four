@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 class Game
-  attr_reader :board, :player1, :player2
+  attr_reader :board, :player1, :player2, :current_player
 
   def initialize(board, player1, player2)
     @board = board
     @player1 = player1
     @player2 = player2
+    @current_player = player1
   end
 
   def assign_symbol
@@ -21,5 +22,13 @@ class Game
     name_for_p2 = 'Player2'
     player1.set_name(name_for_p1)
     player2.set_name(name_for_p2)
+  end
+
+  def change_turn
+    if current_player == player1
+      @current_player = player2
+    else
+      @current_player = player1
+    end
   end
 end
