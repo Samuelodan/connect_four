@@ -12,18 +12,20 @@ RSpec.describe Game do
 
   describe '#assign_symbol' do
     context 'for player1' do
-      it "changes player1's symbol from nil" do
+      it "sends #set_symbol to player1" do
         desired_symbol = "\e[91m\u25CF\e[0m"
-        expect { game.assign_symbol }.to change { game.player1.symbol }.from(nil).to(desired_symbol)
+        expect(player1).to receive(:set_symbol).with(desired_symbol)
+        game.assign_symbol
       end
     end
   end
 
   describe '#assign_symbol' do
     context 'for player2' do
-      it "changes player2's symbol from nil" do
+      it "sends #set_symbol to player2" do
         desired_symbol = "\e[37m\u25CF\e[0m"
-        expect { game.assign_symbol }.to change { game.player2.symbol }.from(nil).to(desired_symbol)
+        expect(player2).to receive(:set_symbol).with(desired_symbol)
+        game.assign_symbol
       end
     end
   end
