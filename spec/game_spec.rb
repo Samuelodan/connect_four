@@ -82,5 +82,19 @@ RSpec.describe Game do
         game.ask_player
       end
     end
+
+    context 'when player enters invalid column number twice' do
+      before do
+        invalid = '9'
+        valid = '4'
+        allow(game).to receive(:gets).and_return(invalid, invalid, valid)
+      end
+
+      it 'alerts player twice' do
+        message = 'enter a valid column number between 1 and 7'
+        expect(game).to receive(:puts).with(message).twice
+        game.ask_player
+      end
+    end
   end
 end
