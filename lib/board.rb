@@ -40,4 +40,17 @@ class Board
   def moves_left?
     grid.any? { |item| item == nil }
   end
+
+  def find_win?
+    current_player_sym = "\e[91m\u25CF\e[0m" # temporary implementation
+    WINNING_COMBOS.each do |combo|
+      board_line = []
+      combo.each do |i|
+        board_line << grid[i]
+      end
+      result = found_four?(choice: current_player_sym, array: board_line)
+      return true if result
+    end
+    false
+  end
 end
