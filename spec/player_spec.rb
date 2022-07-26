@@ -28,4 +28,12 @@ RSpec.describe Player do
       end
     end
   end
+
+  describe '#set_name' do
+    it 'sets player name to passed-in name' do
+      argument = 'Player2'
+      player.set_name(argument)
+      expect(player.name).to eq(argument)
+    end
+  end
 end
