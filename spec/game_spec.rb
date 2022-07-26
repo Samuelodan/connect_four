@@ -47,4 +47,12 @@ RSpec.describe Game do
       end
     end
   end
+
+  describe '#change_turn' do
+    context 'when current_player is player1' do
+      it 'makes player2 the current_player' do
+        expect { game.change_turn }.to change { game.current_player }. from(game.player1).to(game.player2)
+      end
+    end
+  end
 end
