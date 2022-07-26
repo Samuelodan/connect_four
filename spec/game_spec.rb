@@ -68,7 +68,7 @@ RSpec.describe Game do
     end
   end
 
-  describe '#ask_player' do
+  describe '#get_input' do
     context 'when player enters invalid column number once' do
       before do
         invalid = '9'
@@ -79,7 +79,7 @@ RSpec.describe Game do
       it 'alerts player once' do
         message = 'enter a valid column number between 1 and 7'
         expect(game).to receive(:puts).with(message).once
-        game.ask_player
+        game.get_input
       end
     end
 
@@ -93,7 +93,7 @@ RSpec.describe Game do
       it 'alerts player twice' do
         message = 'enter a valid column number between 1 and 7'
         expect(game).to receive(:puts).with(message).twice
-        game.ask_player
+        game.get_input
       end
     end
 
@@ -106,7 +106,7 @@ RSpec.describe Game do
       it 'does not alert player' do
         message = 'enter a valid column number between 1 and 7'
         expect(game).to_not receive(:puts).with(message)
-        game.ask_player
+        game.get_input
       end
     end
   end
