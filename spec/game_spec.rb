@@ -96,5 +96,18 @@ RSpec.describe Game do
         game.ask_player
       end
     end
+
+    context 'when player enters valid column number' do
+      before do
+        valid = '4'
+        allow(game).to receive(:gets).and_return(valid)
+      end
+
+      it 'does not alert player' do
+        message = 'enter a valid column number between 1 and 7'
+        expect(game).to_not receive(:puts).with(message)
+        game.ask_player
+      end
+    end
   end
 end
