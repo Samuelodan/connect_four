@@ -32,16 +32,18 @@ RSpec.describe Game do
 
   describe '#assign_names' do
     context 'for player 1' do
-      it "Changes player1's name from nil" do
+      it "sends #set_name to player1" do
         desired_name = 'Player1'
-        expect { game.assign_names }.to change { game.player1.name }.from(nil).to(desired_name)
+        expect(player1).to receive(:set_name).with(desired_name)
+        game.assign_names
       end
     end
 
     context 'for player 2' do
-      it "Changes player2's name from nil" do
+      it "sends #set_name to player2" do
         desired_name = 'Player2'
-        expect { game.assign_names }.to change { game.player2.name }.from(nil).to(desired_name)
+        expect(player2).to receive(:set_name).with(desired_name)
+        game.assign_names
       end
     end
   end
