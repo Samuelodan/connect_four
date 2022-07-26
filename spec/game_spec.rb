@@ -109,5 +109,23 @@ RSpec.describe Game do
         game.get_input
       end
     end
+
+    context 'when player input is valid but column is already filled' do
+      before do
+        filled = '2'
+        available = '3'
+        allow(game).to receive(:gets).and_return(filled, available)
+        symbol = "\e[91m\u25CF\e[0m"
+        board.grid[36], board.grid[29],
+        board.grid[22], board.grid[15],
+        board.grid[8], board.grid[1] = Array.new(6, symbol)
+      end
+
+      it 'alerts player' do
+        message = 'this column is full. Try another column'
+        expect(game).to receive(:puts).with(message).once
+        game.get_input
+      end
+    end
   end
 end
