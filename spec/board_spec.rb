@@ -133,7 +133,8 @@ RSpec.describe Board do
       end
 
       it 'returns true' do
-        result = board.find_win?
+        current_player_sym = "\e[91m\u25CF\e[0m"
+        result = board.find_win?(symbol: current_player_sym)
         expect(result).to be(true)
       end
     end
@@ -146,7 +147,8 @@ RSpec.describe Board do
       end
 
       it 'returns true' do
-        result = board.find_win?
+        current_player_sym = "\e[91m\u25CF\e[0m"
+        result = board.find_win?(symbol: current_player_sym)
         expect(result).to be(true)
       end
     end
@@ -159,7 +161,8 @@ RSpec.describe Board do
       end
 
       it 'returns true' do
-        result = board.find_win?
+        current_player_sym = "\e[91m\u25CF\e[0m"
+        result = board.find_win?(symbol: current_player_sym)
         expect(result).to be(true)
       end
     end
@@ -172,7 +175,8 @@ RSpec.describe Board do
       end
 
       it 'returns false' do
-        result = board.find_win?
+        current_player_sym = "\e[91m\u25CF\e[0m"
+        result = board.find_win?(symbol: current_player_sym)
         expect(result).to be(false)
       end
     end
