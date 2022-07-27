@@ -164,4 +164,22 @@ RSpec.describe Game do
       end
     end
   end
+
+  describe '#make_move' do
+    before do
+      input = 6
+      allow(game).to receive(:gets).and_return(input)
+      symbol = "\e[91m\u25CF\e[0m"
+      board.grid[4], board.grid[11],
+      board.grid[18], board.grid[25],
+      board.grid[32], board.grid[39] = Array.new(6, symbol)
+    end
+    it 'sends #drop to Board' do
+      game.assign_symbol
+      current_sym = game.current_player.symbol
+      column_no = 6
+      expect(board).to receive(:drop).with(column: column_no, symbol: current_sym)
+      game.make_move
+    end
+  end
 end
