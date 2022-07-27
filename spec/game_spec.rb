@@ -146,7 +146,7 @@ RSpec.describe Game do
       end
     end
 
-    context 'when column is has available slots' do
+    context 'when column has available slots' do
       before do
         filled = '5'
         available = '6'
