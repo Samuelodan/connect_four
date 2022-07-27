@@ -30,14 +30,14 @@ RSpec.describe Board do
       it 'drops item into the grid' do
         symbol = "\e[91m\u25CF\e[0m"
         column_no = 1
-        board.drop(count: column_no, symbol: symbol)
+        board.drop(column: column_no, symbol: symbol)
         expect(board.grid[35]).to eq(symbol)
       end
 
       it 'second slot is nil' do
         symbol = "\e[91m\u25CF\e[0m"
         column_no = 1
-        board.drop(count: column_no, symbol: symbol)
+        board.drop(column: column_no, symbol: symbol)
         expect(board.grid[28]).to be(nil)
       end
     end
@@ -52,14 +52,14 @@ RSpec.describe Board do
       it 'drops item into the grid' do
         symbol = "\e[91m\u25CF\e[0m"
         column_no = 1
-        board.drop(count: column_no, symbol: symbol)
+        board.drop(column: column_no, symbol: symbol)
         expect(board.grid[7]).to eq(symbol)
       end
 
       it 'top slot is empty' do
         symbol = "\e[91m\u25CF\e[0m"
         column_no = 1
-        board.drop(count: column_no, symbol: symbol)
+        board.drop(column: column_no, symbol: symbol)
         expect(board.grid[0]).to be(nil)
       end
     end
