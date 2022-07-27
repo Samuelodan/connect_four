@@ -167,7 +167,7 @@ RSpec.describe Game do
 
   describe '#make_move' do
     before do
-      input = 6
+      input = '6'
       allow(game).to receive(:gets).and_return(input)
       symbol = "\e[91m\u25CF\e[0m"
       board.grid[4], board.grid[11],
