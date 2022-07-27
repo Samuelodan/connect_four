@@ -115,10 +115,7 @@ RSpec.describe Game do
         filled = '2'
         available = '3'
         allow(game).to receive(:gets).and_return(filled, available)
-        symbol = "\e[91m\u25CF\e[0m"
-        board.grid[36], board.grid[29],
-        board.grid[22], board.grid[15],
-        board.grid[8], board.grid[1] = Array.new(6, symbol)
+        allow(board).to receive(:column_full?).and_return(true, false)
       end
 
       it 'alerts player' do
@@ -133,10 +130,7 @@ RSpec.describe Game do
         filled = '2'
         available = '3'
         allow(game).to receive(:gets).and_return(filled, filled, available)
-        symbol = "\e[91m\u25CF\e[0m"
-        board.grid[36], board.grid[29],
-        board.grid[22], board.grid[15],
-        board.grid[8], board.grid[1] = Array.new(6, symbol)
+        allow(board).to receive(:column_full?).and_return(true, true, false)
       end
 
       it 'alerts player twice' do
@@ -151,10 +145,7 @@ RSpec.describe Game do
         filled = '5'
         available = '6'
         allow(game).to receive(:gets).and_return(available)
-        symbol = "\e[91m\u25CF\e[0m"
-        board.grid[4], board.grid[11],
-        board.grid[18], board.grid[25],
-        board.grid[32], board.grid[39] = Array.new(6, symbol)
+        allow(board).to receive(:column_full?).and_return(false)
       end
 
       it 'does not alert player' do
