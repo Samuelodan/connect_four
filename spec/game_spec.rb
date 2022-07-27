@@ -145,5 +145,23 @@ RSpec.describe Game do
         game.get_input
       end
     end
+
+    context 'when column is has available slots' do
+      before do
+        filled = '5'
+        available = '6'
+        allow(game).to receive(:gets).and_return(available)
+        symbol = "\e[91m\u25CF\e[0m"
+        board.grid[4], board.grid[11],
+        board.grid[18], board.grid[25],
+        board.grid[32], board.grid[39] = Array.new(6, symbol)
+      end
+
+      it 'does not alert player' do
+        message = 'this column is full. Try another column'
+        expect(game).to_not receive(:puts).with(message)
+        game.get_input
+      end
+    end
   end
 end
