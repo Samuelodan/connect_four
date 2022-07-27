@@ -44,4 +44,9 @@ class Game
     end
     input
   end
+
+  def make_move
+    input = get_input
+    board.drop(column: input, symbol: current_player.symbol)
+  end
 end
