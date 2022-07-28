@@ -57,7 +57,7 @@ class Board
   end
 
   def moves_left?
-    grid.any? { |item| item == '  ' }
+    grid.any?('  ')
   end
 
   def find_win?(symbol:)
