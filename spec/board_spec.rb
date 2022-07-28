@@ -181,4 +181,20 @@ RSpec.describe Board do
       end
     end
   end
+
+  describe '#reset' do
+    before do
+      symbol = "\e[91m\u25CF\e[0m"
+      start_index = 0
+      grid_size = board.grid.length
+      board.grid[start_index, grid_size] = Array.new(grid_size, symbol)
+    end
+
+    it 'sets all slots to default value' do
+      default = ' '
+      board.reset
+      result = board.grid.all?(default)
+      expect(result).to be(true)
+    end
+  end
 end
