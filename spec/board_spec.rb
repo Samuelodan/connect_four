@@ -38,7 +38,7 @@ RSpec.describe Board do
         symbol = "\e[91m\u25CF\e[0m"
         column_no = 1
         board.drop(column: column_no, symbol: symbol)
-        expect(board.grid[28]).to be('  ')
+        expect(board.grid[28]).to be(' ')
       end
     end
 
@@ -60,7 +60,7 @@ RSpec.describe Board do
         symbol = "\e[91m\u25CF\e[0m"
         column_no = 1
         board.drop(column: column_no, symbol: symbol)
-        expect(board.grid[0]).to be('  ')
+        expect(board.grid[0]).to be(' ')
       end
     end
   end
