@@ -16,6 +16,11 @@ class Game
     @player2 = player2
     @current_player = player1
   end
+  
+  def assign_attributes
+    assign_names
+    assign_symbol
+  end
 
   def assign_symbol
     symbol_for_p1 = "\e[91m\u25CF\e[0m"
