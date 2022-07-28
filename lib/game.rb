@@ -87,6 +87,17 @@ class Game
       Yay! #{name} won this round. Good game.
     HEREDOC
   end
+
+  def declare_tie
+    puts <<~HEREDOC
+
+    G A M E O V E R!
+
+    That was one tough match for sure.
+    Match ended in a tie.
+
+    HEREDOC
+  end
     
   def ask_play_again
     puts <<~HEREDOC
