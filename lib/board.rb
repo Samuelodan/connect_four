@@ -8,7 +8,7 @@ class Board
   attr_reader :grid
 
   def initialize
-    @grid = Array.new(42)
+    @grid = Array.new(42, '  ')
   end
 
   def display
@@ -44,7 +44,7 @@ class Board
 
   def drop(column:, symbol:)
     COLUMNS[column - 1].reverse_each do |position|
-      unless grid[position]
+      if grid[position] == '  '
         grid[position] = symbol
         return
       end
@@ -53,11 +53,11 @@ class Board
 
   def column_full?(column:)
     col_array = COLUMNS[column - 1].map { |index| grid[index] }
-    col_array.length == col_array.compact.length
+    col_array.none?('  ')
   end
 
   def moves_left?
-    grid.any? { |item| item == nil }
+    grid.any? { |item| item == '  ' }
   end
 
   def find_win?(symbol:)
