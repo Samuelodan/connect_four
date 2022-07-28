@@ -13,6 +13,7 @@ class Board
 
   def display
     puts <<~HEREDOC
+       c1 c2 c3 c4 c5 c6 c7
       +——+——+——+——+——+——+——+
       | #{grid[0]} | #{grid[1]} | #{grid[2]} | #{grid[3]} | #{grid[4]} | #{grid[5]} | #{grid[6]} |
       +——+——+——+——+——+——+——+
