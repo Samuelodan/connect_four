@@ -72,4 +72,10 @@ class Board
     end
     false
   end
+
+  def reset
+    grid.each_index do |idx|
+      grid[idx] = ' '
+    end
+  end
 end
