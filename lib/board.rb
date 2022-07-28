@@ -11,7 +11,7 @@ class Board
     @grid = Array.new(42)
   end
 
-  def to_s
+  def display
     puts <<~HEREDOC
       +——+——+——+——+——+——+——+
       | #{grid[0]} | #{grid[1]} | #{grid[2]} | #{grid[3]} | #{grid[4]} | #{grid[5]} | #{grid[6]} |
