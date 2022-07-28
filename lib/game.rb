@@ -49,4 +49,16 @@ class Game
     input = get_input
     board.drop(column: input, symbol: current_player.symbol)
   end
+
+  def declare_win(name)
+    puts <<~HEREDOC
+      Yay! #{name} won this round. Good game.
+
+      If you want to play again, enter 'y', otherwise, enter any other key...
+    HEREDOC
+
+    response = gets.chomp.downcase
+    play if response == 'y'
+    puts 'Thank you for playing' unless response == 'y'
+  end
 end
