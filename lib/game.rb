@@ -1,9 +1,16 @@
 # frozen_string_literal: true
 
+require_relative 'board'
+require_relative './player'
+
 class Game
   attr_reader :board, :player1, :player2, :current_player
 
-  def initialize(board, player1, player2)
+  def initialize(
+    board: Board.new,
+    player1: Player.new,
+    player2: Player.new
+  )
     @board = board
     @player1 = player1
     @player2 = player2

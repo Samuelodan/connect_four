@@ -5,7 +5,11 @@ require_relative '../lib/board'
 require_relative '../lib/player'
 
 RSpec.describe Game do
-  subject(:game) { described_class.new(board, player1, player2) }
+  subject(:game) { described_class.new(
+                      board: board,
+                      player1: player1,
+                      player2: player2)
+                  }
   let(:board) { Board.new }
   let(:player1) { Player.new }
   let(:player2) { Player.new }
