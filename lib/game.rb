@@ -85,10 +85,14 @@ class Game
   def declare_win(name)
     puts <<~HEREDOC
       Yay! #{name} won this round. Good game.
-
+    HEREDOC
+  end
+    
+  def ask_play_again
+    puts <<~HEREDOC
       If you want to play again, enter 'y', otherwise, enter any other key...
     HEREDOC
-
+    print '>> '
     response = gets.chomp.downcase
     play if response == 'y'
     puts 'Thank you for playing' unless response == 'y'
