@@ -22,6 +22,17 @@ class Game
     assign_symbol
   end
 
+  def play
+    assign_attributes
+    while board.moves_left?
+      board.display
+      make_move
+      break if board.find_win?(symbol: current_player.symbol)
+      change_turn
+    end
+    get_winner
+  end
+
   def assign_symbol
     symbol_for_p1 = "\e[91m\u25CF\e[0m"
     symbol_for_p2 = "\e[37m\u25CF\e[0m"
