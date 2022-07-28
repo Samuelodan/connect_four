@@ -69,6 +69,12 @@ RSpec.describe Game do
   end
 
   describe '#get_input' do
+    before do
+      prompt = ', enter a column number between 1 and 7'
+      allow(game).to receive(:print)
+      allow(game).to receive(:puts).with(prompt)
+    end
+
     context 'when player enters invalid column number once' do
       before do
         invalid = '9'
@@ -160,6 +166,8 @@ RSpec.describe Game do
     before do
       input = '6'
       allow(game).to receive(:gets).and_return(input)
+      allow(game).to receive(:print)
+      allow(game).to receive(:puts)
     end
     it 'sends #drop to Board' do
       expect(board).to receive(:drop)

@@ -33,13 +33,17 @@ class Game
   end
 
   def get_input
+    puts "#{current_player.name}, enter a column number between 1 and 7"
+    print '>>'
     input = gets.chomp.to_i
     until input.between?(1, 7) do
       puts 'enter a valid column number between 1 and 7'
+      print '>>'
       input = gets.chomp.to_i
     end
     while board.column_full?(column: input)
       puts 'this column is full. Try another column'
+      print '>>'
       input = gets.chomp.to_i
     end
     input
