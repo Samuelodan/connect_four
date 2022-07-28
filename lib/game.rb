@@ -50,6 +50,11 @@ class Game
     board.drop(column: input, symbol: current_player.symbol)
   end
 
+  def get_winner
+    result = board.find_win?(symbol: current_player.symbol)
+    declare_win(current_player.name) if result
+  end
+
   def declare_win(name)
     puts <<~HEREDOC
       Yay! #{name} won this round. Good game.
