@@ -1,0 +1,21 @@
+run = "ruby lib/main.rb"
+hidden = [".bundle"]
+
+[packager]
+language = "ruby"
+
+[packager.features]
+packageSearch = true
+guessImports = true
+
+[languages.ruby]
+pattern = "**/*.rb"
+
+[languages.ruby.languageServer]
+start = ["solargraph", "stdio"]
+
+[gitHubImport]
+requiredFiles = [".replit", "replit.nix", "README.md"]
+
+[nix]
+channel = "stable-22_05"
