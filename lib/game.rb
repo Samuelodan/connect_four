@@ -25,6 +25,7 @@ class Game
   def play
     assign_attributes
     while board.moves_left?
+      system('clear')
       board.display
       make_move
       break if board.find_win?(symbol: current_player.symbol)
