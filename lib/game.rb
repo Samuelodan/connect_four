@@ -79,8 +79,11 @@ class Game
 
   def get_winner
     result = board.find_win?(symbol: current_player.symbol)
+    system('clear')
+    board.display
     declare_win(current_player.name) if result
     declare_tie unless result
+    ask_play_again
   end
 
   def declare_win(name)
