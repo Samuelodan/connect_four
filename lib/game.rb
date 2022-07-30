@@ -112,4 +112,12 @@ class Game
     play if response == 'y'
     puts 'Thank you for playing' unless response == 'y'
   end
+
+  def declare_quit
+    puts <<~HEREDOC
+      THANK YOU FOR PLAYING.
+
+      You can start the game again by clicking 'run' above
+    HEREDOC
+  end
 end
