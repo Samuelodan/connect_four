@@ -75,8 +75,10 @@ RSpec.describe Game do
   describe '#get_input' do
     before do
       prompt = ', enter a column number between 1 and 7'
+      prompt2 = 'or enter `quit` to exit game.'
       allow(game).to receive(:print)
       allow(game).to receive(:puts).with(prompt)
+      allow(game).to receive(:puts).with(prompt2)
     end
 
     context 'when player enters invalid column number once' do
