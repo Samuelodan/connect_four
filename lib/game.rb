@@ -37,7 +37,7 @@ class Game
   end
 
   def assign_symbol
-    symbol_for_p1 = "\e[91m\u25CF\e[0m"
+    symbol_for_p1 = "\e[31m\u25CF\e[0m"
     symbol_for_p2 = "\e[37m\u25CF\e[0m"
     player1.set_symbol(symbol_for_p1)
     player2.set_symbol(symbol_for_p2)
