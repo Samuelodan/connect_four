@@ -8,7 +8,7 @@ module GridLines
     [6, 13, 20, 27, 34, 41]
   ].freeze
 
-  rows = [
+  ROWS = [
     [0, 1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12, 13],
     [14, 15, 16, 17, 18, 19, 20], [21, 22, 23, 24, 25, 26, 27],
     [28, 29, 30, 31, 32, 33, 34], [35, 36, 37, 38, 39, 40, 41],
@@ -26,5 +26,5 @@ module GridLines
     [4, 10, 16, 22, 28], [3, 9, 15, 21]
   ].freeze
 
-  WINNING_COMBOS = [COLUMNS, rows, ltr_diags, rtr_diags].flatten(1).freeze
+  WINNING_COMBOS = [COLUMNS, ROWS, ltr_diags, rtr_diags].flatten(1).freeze
 end
