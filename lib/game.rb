@@ -24,6 +24,7 @@ class Game
   end
 
   def play
+    introduce
     assign_attributes
     while board.moves_left?
       board.display
