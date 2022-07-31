@@ -91,6 +91,29 @@ class Game
     ask_play_again
   end
 
+  def introduce
+    puts <<~HEREDOC
+      W E L C O M E  TO  C O N N E C T  F O U R
+
+      YOU WIN THIS GAME BY BEING THE FIRST TO FORM AN UNBROKEN DIAGONAL,
+      VERTICAL, OR HORIZONTAL LINE WITH 4 OF YOUR PIECES.
+      YOU FORM THESE LINES BY DROPPING YOUR PIECES STRAIGHT INTO ANY ONE
+      OF THE 7 COLUMNS.
+      
+      ALRIGHT, THAT SAID, LET THE GAME BEGIN!
+
+      enter any key to continue...\n
+    HEREDOC
+    print '>> '
+    gets.chomp
+  end
+
+  def collect_name(player)
+    puts "#{player}, enter your name"
+    print '>> '
+    gets.chomp
+  end
+
   def declare_win(name)
     puts <<~HEREDOC
       Yay! #{name} won this round. Good game.
