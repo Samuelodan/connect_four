@@ -126,7 +126,11 @@ class Game
 
   def declare_win(name)
     puts <<~HEREDOC
-      Yay! #{name} won this round. Good game.
+    
+      **************************************
+      YAY!! #{name} won this round.
+      Good game.
+      
     HEREDOC
   end
 
