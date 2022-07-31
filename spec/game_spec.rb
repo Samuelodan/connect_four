@@ -33,6 +33,11 @@ RSpec.describe Game do
   end
 
   describe '#assign_names' do
+    before do
+      name = 'Player1'
+      allow(game).to receive(:gets).and_return(name)
+    end
+
     context 'for player 1' do
       it "sends #set_name to player1" do
         desired_name = 'Player1'
@@ -42,6 +47,11 @@ RSpec.describe Game do
     end
 
     context 'for player 2' do
+      before do
+        name = 'Player2'
+        allow(game).to receive(:gets).and_return(name)
+      end
+
       it "sends #set_name to player2" do
         desired_name = 'Player2'
         expect(player2).to receive(:set_name).with(desired_name)
