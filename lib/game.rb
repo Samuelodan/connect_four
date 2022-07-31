@@ -43,10 +43,8 @@ class Game
   end
 
   def assign_names
-    name_for_p1 = 'Player1'
-    name_for_p2 = 'Player2'
-    player1.set_name(name_for_p1)
-    player2.set_name(name_for_p2)
+    player1.set_name(collect_name('Player1'))
+    player2.set_name(collect_name('Player2'))
   end
 
   def change_turn
