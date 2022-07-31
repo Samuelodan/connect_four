@@ -91,6 +91,8 @@ class Game
     ask_play_again
   end
 
+  private
+
   def introduce
     system('clear')
     puts <<~HEREDOC
