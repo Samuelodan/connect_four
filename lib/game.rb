@@ -89,6 +89,7 @@ class Game
   end
 
   def introduce
+    system('clear')
     puts <<~HEREDOC
       W E L C O M E  TO  C O N N E C T  F O U R
 
@@ -112,6 +113,7 @@ class Game
   end
 
   def collect_name(player)
+    system('clear')
     puts "#{player}, enter your name"
     print '>> '
     gets.chomp
