@@ -17,7 +17,7 @@ RSpec.describe Game do
   describe '#assign_symbol' do
     context 'for player1' do
       it "sends #set_symbol to player1" do
-        desired_symbol = "\e[91m\u25CF\e[0m"
+        desired_symbol = "\e[31m\u25CF\e[0m"
         expect(player1).to receive(:set_symbol).with(desired_symbol)
         game.assign_symbol
       end
