@@ -28,6 +28,7 @@ class Game
     assign_attributes
     while board.moves_left?
       board.display
+      display_player_sym
       make_move
       break if quit || board.find_win?(symbol: current_player.symbol)
       change_turn
@@ -108,8 +109,11 @@ class Game
   end
 
   def display_player_sym
-    puts <<~HEREDOC
-      #{player1.name} is #{player1.sym} :: #{player2.name} is #{player2.sym}
+    puts <<-HEREDOC
+    
+    #{player1.name} is #{player1.symbol} :: #{player2.name} is #{player2.symbol}
+
+      
     HEREDOC
   end
 
