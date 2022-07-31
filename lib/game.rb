@@ -93,6 +93,8 @@ class Game
   def introduce
     system('clear')
     puts <<~HEREDOC
+
+
       W E L C O M E  TO  C O N N E C T  F O U R
 
       YOU WIN THIS GAME BY BEING THE FIRST TO FORM AN UNBROKEN DIAGONAL,
@@ -130,7 +132,7 @@ class Game
       **************************************
       YAY!! #{name} won this round.
       Good game.
-      
+
     HEREDOC
   end
 
