@@ -24,7 +24,6 @@ class Game
   end
 
   def play
-    @quit = false
     assign_attributes
     while board.moves_left?
       system('clear')
@@ -84,6 +83,7 @@ class Game
   end
 
   def get_winner
+    reset_quit
     result = board.find_win?(symbol: current_player.symbol)
     system('clear')
     board.display
@@ -118,5 +118,9 @@ class Game
     board.reset if response == 'y'
     play if response == 'y'
     puts 'Thank you for playing' unless response == 'y'
+  end
+
+  def reset_quit
+    @quit = false
   end
 end
