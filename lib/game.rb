@@ -89,7 +89,6 @@ class Game
     board.display
     declare_win(current_player.name) if result
     declare_tie unless board.moves_left?
-    declare_quit if quit
     ask_play_again
   end
 
@@ -119,13 +118,5 @@ class Game
     board.reset if response == 'y'
     play if response == 'y'
     puts 'Thank you for playing' unless response == 'y'
-  end
-
-  def declare_quit
-    puts <<~HEREDOC
-      THANK YOU FOR PLAYING.
-
-      You can start the game again by clicking 'run' above
-    HEREDOC
   end
 end
