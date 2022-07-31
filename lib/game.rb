@@ -85,6 +85,7 @@ class Game
     result = board.find_win?(symbol: current_player.symbol)
     system('clear')
     board.display
+    display_player_sym
     declare_win(current_player.name) if result
     declare_tie unless board.moves_left?
     ask_play_again
@@ -114,7 +115,6 @@ class Game
     puts <<-HEREDOC
     
     #{player1.name} is #{player1.symbol} :: #{player2.name} is #{player2.symbol}
-
       
     HEREDOC
   end
@@ -128,7 +128,6 @@ class Game
 
   def declare_win(name)
     puts <<~HEREDOC
-    
       **************************************
       YAY!! #{name} won this round.
       Good game.
