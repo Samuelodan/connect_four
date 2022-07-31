@@ -4,7 +4,7 @@ require_relative 'board'
 require_relative './player'
 
 class Game
-  attr_reader :board, :player1, :player2, :current_player
+  attr_reader :board, :player1, :player2, :current_player, :quit
 
   def initialize(
     board: Board.new,
@@ -15,6 +15,7 @@ class Game
     @player1 = player1
     @player2 = player2
     @current_player = player1
+    @quit = false
   end
   
   def assign_attributes
@@ -23,11 +24,13 @@ class Game
   end
 
   def play
+    @quit = false
     assign_attributes
     while board.moves_left?
       system('clear')
       board.display
       make_move
+      break if quit
       break if board.find_win?(symbol: current_player.symbol)
       change_turn
     end
@@ -58,10 +61,13 @@ class Game
 
   def get_input
     puts "#{current_player.name}, enter a column number between 1 and 7"
-    
+    puts 'or enter `quit` to exit game.'
+
     loop do
       print '>> '
-      input = gets.chomp.to_i
+      input = gets.chomp
+      break input if input == 'quit'
+      input = input.to_i
       if !input.between?(1, 7)
         puts 'enter a valid column number between 1 and 7'
       elsif board.column_full?(column: input)
@@ -73,6 +79,7 @@ class Game
 
   def make_move
     input = get_input
+    return @quit = true if input == 'quit'
     board.drop(column: input, symbol: current_player.symbol)
   end
 
@@ -81,7 +88,8 @@ class Game
     system('clear')
     board.display
     declare_win(current_player.name) if result
-    declare_tie unless result
+    declare_tie unless board.moves_left?
+    declare_quit if quit
     ask_play_again
   end
 
