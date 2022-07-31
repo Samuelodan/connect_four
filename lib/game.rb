@@ -29,8 +29,7 @@ class Game
       system('clear')
       board.display
       make_move
-      break if quit
-      break if board.find_win?(symbol: current_player.symbol)
+      break if quit || board.find_win?(symbol: current_player.symbol)
       change_turn
     end
     get_winner
