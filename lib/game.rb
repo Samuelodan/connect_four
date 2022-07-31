@@ -106,6 +106,12 @@ class Game
     gets.chomp
   end
 
+  def display_player_sym
+    puts <<~HEREDOC
+      #{player1.name} is #{player1.sym} :: #{player2.name} is #{player2.sym}
+    HEREDOC
+  end
+
   def collect_name(player)
     puts "#{player}, enter your name"
     print '>> '
