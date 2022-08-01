@@ -69,9 +69,9 @@ class Game
       break input if input == 'quit'
       input = input.to_i
       if !input.between?(1, 7)
-        puts 'enter a valid column number between 1 and 7'
+        puts "\e[31menter a valid column number between 1 and 7\e[0m"
       elsif board.column_full?(column: input)
-        puts 'this column is full. Try another column'
+        puts "\e[33mthis column is full. Try another column\e[0m"
       end
       break input if input.between?(1, 7) && !board.column_full?(column: input)
     end
