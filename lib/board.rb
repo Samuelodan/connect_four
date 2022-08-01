@@ -27,14 +27,7 @@ class Board
   end
 
   def found_four?(choice:, array:)
-    count = 0
-    array.each_with_index do |item, idx|
-      if item == choice && array.at(idx + 1) == choice
-        count += 1
-      end
-      count = 0 if item != choice
-      return true if count == 3
-    end
+    array.each_cons(4) { |four| return true if four.all?(choice) }
     false
   end
 
