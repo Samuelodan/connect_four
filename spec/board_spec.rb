@@ -197,4 +197,22 @@ RSpec.describe Board do
       expect(result).to be(true)
     end
   end
+
+  describe '#column_valid?' do
+    context 'when column number is invalid' do
+      it 'returns false' do
+        column_number = 8
+        result = board.column_valid?(column_number)
+        expect(result).to be(false)
+      end
+    end
+
+    context 'when column number is valid' do
+      it 'returns true' do
+        column_number = 5
+        result = board.column_valid?(column_number)
+        expect(result).to be(true)
+      end
+    end
+  end
 end
