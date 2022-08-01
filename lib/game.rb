@@ -2,8 +2,11 @@
 
 require_relative 'board'
 require_relative './player'
+require_relative './display'
 
 class Game
+  include Display
+
   attr_reader :board, :player1, :player2, :current_player, :quit
 
   def initialize(
@@ -93,59 +96,11 @@ class Game
 
   private
 
-  def introduce
-    system('clear')
-    puts <<~HEREDOC
-
-
-      W E L C O M E  TO  C O N N E C T  F O U R
-
-      YOU WIN THIS GAME BY BEING THE FIRST TO FORM AN UNBROKEN DIAGONAL,
-      VERTICAL, OR HORIZONTAL LINE WITH 4 OF YOUR PIECES.
-      YOU FORM THESE LINES BY DROPPING YOUR PIECES STRAIGHT INTO ANY ONE
-      OF THE 7 COLUMNS.
-      
-      ALRIGHT, THAT SAID, LET THE GAME BEGIN!
-
-      enter any key to continue...\n
-    HEREDOC
-    print '>> '
-    gets.chomp
-  end
-
-  def display_player_sym
-    puts <<-HEREDOC
-    
-    #{player1.name} is #{player1.symbol} :: #{player2.name} is #{player2.symbol}
-      
-    HEREDOC
-  end
-
   def collect_name(player)
     system('clear')
     puts "#{player}, enter your name"
     print '>> '
     gets.chomp
-  end
-
-  def declare_win(name)
-    puts <<~HEREDOC
-      **************************************
-      YAY!! #{name} won this round.
-      Good game.
-
-    HEREDOC
-  end
-
-  def declare_tie
-    puts <<~HEREDOC
-
-    G A M E O V E R!
-
-    That was one tough match for sure.
-    Match ended in a tie.
-
-    HEREDOC
   end
     
   def ask_play_again
