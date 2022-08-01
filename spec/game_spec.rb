@@ -14,6 +14,10 @@ RSpec.describe Game do
   let(:player1) { Player.new }
   let(:player2) { Player.new }
 
+  before do
+    allow(game).to receive(:system)
+  end
+
   describe '#assign_symbol' do
     context 'for player1' do
       it "sends #set_symbol to player1" do
