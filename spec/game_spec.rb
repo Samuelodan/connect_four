@@ -139,7 +139,7 @@ RSpec.describe Game do
       end
 
       it 'alerts player' do
-        message = "\e[33mthis column is full. Try another column\e[0m"
+        message = "\e[93mthis column is full. Try another column\e[0m"
         expect(game).to receive(:puts).with(message).once
         game.get_input
       end
@@ -154,7 +154,7 @@ RSpec.describe Game do
       end
 
       it 'alerts player twice' do
-        message = "\e[33mthis column is full. Try another column\e[0m"
+        message = "\e[93mthis column is full. Try another column\e[0m"
         expect(game).to receive(:puts).with(message).twice
         game.get_input
       end
@@ -169,7 +169,7 @@ RSpec.describe Game do
       end
 
       it 'does not alert player' do
-        message = "\e[33mthis column is full. Try another column\e[0m"
+        message = "\e[93mthis column is full. Try another column\e[0m"
         expect(game).to_not receive(:puts).with(message)
         game.get_input
       end
