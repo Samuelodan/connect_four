@@ -156,7 +156,7 @@ RSpec.describe Game do
         filled = '2'
         available = '3'
         allow(game).to receive(:gets).and_return(filled, filled, available)
-        allow(board).to receive(:column_full?).and_return(true, true, true, false)
+        allow(board).to receive(:column_full?).and_return(true, true, false)
       end
 
       it 'alerts player twice' do
