@@ -31,7 +31,7 @@ module Display
 
   def declare_win(name)
     puts <<~HEREDOC
-      \e[32m
+      \e[92m
       **************************************
       YAY!! #{name} won this round.
       Good game.
@@ -41,10 +41,10 @@ module Display
 
   def declare_tie
     puts <<~HEREDOC
-    \e[33m
+    \e[93m
     G A M E O V E R!
 
-    That was one tough match for sure.
+    That was one tough game for sure.
     Match ended in a tie.
     \e[0m
     HEREDOC
