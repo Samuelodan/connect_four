@@ -40,6 +40,8 @@ RSpec.describe Game do
     before do
       name = 'Player1'
       allow(game).to receive(:gets).and_return(name)
+      allow(game).to receive(:puts)
+      allow(game).to receive(:print)
     end
 
     context 'for player 1' do
