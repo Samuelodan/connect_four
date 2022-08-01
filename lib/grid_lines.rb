@@ -20,11 +20,11 @@ module GridLines
     [2, 10, 18, 26, 34], [3, 11, 19, 27]
   ].freeze
   
-  rtr_diags = [
+  rtl_diags = [
     [20, 26, 32, 38], [13, 19, 25, 31, 37],
     [6, 12, 18, 24, 30, 36], [5, 11, 17, 23, 29, 35],
     [4, 10, 16, 22, 28], [3, 9, 15, 21]
   ].freeze
 
-  WINNING_COMBOS = [COLUMNS, ROWS, ltr_diags, rtr_diags].flatten(1).freeze
+  WINNING_COMBOS = [COLUMNS, ROWS, ltr_diags, rtl_diags].flatten(1).freeze
 end
