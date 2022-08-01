@@ -97,7 +97,7 @@ RSpec.describe Game do
       end
 
       it 'alerts player once' do
-        message = 'enter a valid column number between 1 and 7'
+        message = "\e[31menter a valid column number between 1 and 7\e[0m"
         expect(game).to receive(:puts).with(message).once
         game.get_input
       end
@@ -111,7 +111,7 @@ RSpec.describe Game do
       end
 
       it 'alerts player twice' do
-        message = 'enter a valid column number between 1 and 7'
+        message = "\e[31menter a valid column number between 1 and 7\e[0m"
         expect(game).to receive(:puts).with(message).twice
         game.get_input
       end
@@ -124,7 +124,7 @@ RSpec.describe Game do
       end
 
       it 'does not alert player' do
-        message = 'enter a valid column number between 1 and 7'
+        message = "\e[31menter a valid column number between 1 and 7\e[0m"
         expect(game).to_not receive(:puts).with(message)
         game.get_input
       end
@@ -139,7 +139,7 @@ RSpec.describe Game do
       end
 
       it 'alerts player' do
-        message = 'this column is full. Try another column'
+        message = "\e[33mthis column is full. Try another column\e[0m"
         expect(game).to receive(:puts).with(message).once
         game.get_input
       end
@@ -154,7 +154,7 @@ RSpec.describe Game do
       end
 
       it 'alerts player twice' do
-        message = 'this column is full. Try another column'
+        message = "\e[33mthis column is full. Try another column\e[0m"
         expect(game).to receive(:puts).with(message).twice
         game.get_input
       end
@@ -169,7 +169,7 @@ RSpec.describe Game do
       end
 
       it 'does not alert player' do
-        message = 'this column is full. Try another column'
+        message = "\e[33mthis column is full. Try another column\e[0m"
         expect(game).to_not receive(:puts).with(message)
         game.get_input
       end
