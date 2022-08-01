@@ -59,10 +59,14 @@ class Game
     end
   end
 
-  def get_input
+  def prompt_move
     puts "#{current_player.name}, enter a column number between 1 and 7"
     puts 'or enter `quit` to exit game.'
 
+    get_input
+  end
+
+  def get_input
     loop do
       print '>> '
       input = gets.chomp
@@ -78,7 +82,7 @@ class Game
   end
 
   def make_move
-    input = get_input
+    input = prompt_move
     return @quit = true if input == 'quit'
     board.drop(column: input, symbol: current_player.symbol)
   end
