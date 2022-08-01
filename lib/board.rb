@@ -52,6 +52,11 @@ class Board
     col_array.none?(' ')
   end
 
+  def column_valid?(column_number)
+    last_col = COLUMNS.length
+    column_number.between?(1, last_col)
+  end
+
   def moves_left?
     grid.any?(' ')
   end
