@@ -70,16 +70,17 @@ class Game
     loop do
       print '>> '
       input = gets.chomp
-      break input if input == 'quit'
+      return input if input == 'quit'
       int_input = input.to_i
-      exist = int_input.between?(1, 7)
-      if !exist
+      
+      if !board.column_valid?(int_input)
         puts "\e[31menter a valid column number between 1 and 7\e[0m"
+        next
       elsif board.column_full?(column: int_input)
-        full = true
         puts "\e[93mthis column is full. Try another column\e[0m"
+        next
       end
-      break int_input if exist && !full
+      return int_input
     end
   end
 
