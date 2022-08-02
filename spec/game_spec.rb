@@ -194,4 +194,19 @@ RSpec.describe Game do
       game.make_move
     end
   end
+
+  describe '#valid_move?' do
+    context 'when column number is valid and not full' do
+      before do
+        allow(board).to receive(:column_valid?).and_return(true)
+        allow(board).to receive(:column_full?).and_return(false)
+      end
+
+      it 'returns true' do
+        column_no = 5
+        result = game.valid_input?(column_no)
+        expect(result).to be(true)
+      end
+    end
+  end
 end
