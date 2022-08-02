@@ -88,6 +88,14 @@ class Game
     board.column_valid?(input) && !board.column_full?(column: input)
   end
 
+  def display_error_message(input)
+    if !board.column_valid?(input)
+      puts "\e[31menter a valid column number between 1 and 7\e[0m"
+    elsif board.column_full?(column: input)
+      puts "\e[93mthis column is full. Try another column\e[0m"
+    end
+  end
+
   def make_move
     input = prompt_move
     return @quit = true if input == 'quit'
