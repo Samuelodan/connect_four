@@ -62,25 +62,19 @@ class Game
   def prompt_move
     puts "#{current_player.name}, enter a column number between 1 and 7"
     puts 'or enter `quit` to exit game.'
-
-    get_input
   end
 
   def get_input
     loop do
+      puts "\n"
       print '>> '
       input = gets.chomp
       return input if input == 'quit'
+
       int_input = input.to_i
-      
-      if !board.column_valid?(int_input)
-        puts "\e[31menter a valid column number between 1 and 7\e[0m"
-        next
-      elsif board.column_full?(column: int_input)
-        puts "\e[93mthis column is full. Try another column\e[0m"
-        next
-      end
-      return int_input
+      return int_input if valid_move?(int_input)
+
+      display_error_message(int_input)
     end
   end
 
@@ -97,7 +91,8 @@ class Game
   end
 
   def make_move
-    input = prompt_move
+    prompt_move
+    input = get_input
     return @quit = true if input == 'quit'
     board.drop(column: input, symbol: current_player.symbol)
   end
