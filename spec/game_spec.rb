@@ -245,5 +245,18 @@ RSpec.describe Game do
         game.display_error_message(column_no)
       end
     end
+
+    context 'when column is full' do
+      before do
+        allow(board).to receive(:column_full?).and_return(true)
+      end
+
+      it 'displays column full message' do
+        message = "\e[93mthis column is full. Try another column\e[0m"
+        column_no = 3
+        expect(game).to receive(:puts).with(message)
+        game.display_error_message(column_no)
+      end
+    end
   end
 end
