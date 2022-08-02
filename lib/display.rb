@@ -24,7 +24,7 @@ module Display
   def display_player_sym
     puts <<-HEREDOC
     
-    #{player1.name} is #{player1.symbol} :: #{player2.name} is #{player2.symbol}
+    #{player1.symbol} #{player1.name} ::VS:: #{player2.name} #{player2.symbol}
       
     HEREDOC
   end
@@ -32,7 +32,7 @@ module Display
   def declare_win(name)
     puts <<~HEREDOC
       \e[92m
-      **************************************
+      *****************************
       YAY!! #{name} won this round.
       Good game.
       \e[0m
