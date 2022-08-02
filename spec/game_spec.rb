@@ -204,7 +204,7 @@ RSpec.describe Game do
 
       it 'returns true' do
         column_no = 5
-        result = game.valid_input?(column_no)
+        result = game.valid_move?(column_no)
         expect(result).to be(true)
       end
     end
@@ -217,7 +217,7 @@ RSpec.describe Game do
 
       it 'returns false' do
         column_no = 5
-        result = game.valid_input?(column_no)
+        result = game.valid_move?(column_no)
         expect(result).to be(false)
       end
     end
@@ -230,7 +230,7 @@ RSpec.describe Game do
 
       it 'returns false' do
         column_no = 5
-        result = game.valid_input?(column_no)
+        result = game.valid_move?(column_no)
         expect(result).to be(false)
       end
     end
