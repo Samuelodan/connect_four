@@ -121,6 +121,10 @@ class Game
     HEREDOC
     print "\n>> "
     response = gets.chomp.downcase
+    act_on_play_again(response)
+  end
+
+  def act_on_play_again(response)
     board.reset if response == 'y'
     play if response == 'y'
     puts 'Thank you for playing' unless response == 'y'
