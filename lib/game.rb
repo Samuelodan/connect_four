@@ -84,6 +84,10 @@ class Game
     end
   end
 
+  def valid_move?(input)
+    board.column_valid?(input) && !board.column_full?(column: input)
+  end
+
   def make_move
     input = prompt_move
     return @quit = true if input == 'quit'
