@@ -235,4 +235,15 @@ RSpec.describe Game do
       end
     end
   end
+
+  describe '#display_error_message' do
+    context 'when column number is invalid' do
+      it 'displays invalid column message' do
+        message = "\e[31menter a valid column number between 1 and 7\e[0m"
+        column_no = 8
+        expect(game).to receive(:puts).with(message)
+        game.display_error_message(column_no)
+      end
+    end
+  end
 end
