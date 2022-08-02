@@ -67,8 +67,8 @@ class Game
   def get_input
     loop do
       print "\n>> "
-      input = gets.chomp
-      return input if input.downcase == 'quit'
+      input = gets.chomp.downcase
+      return input if input == 'quit'
 
       int_input = input.to_i
       return int_input if valid_move?(int_input)
@@ -92,7 +92,7 @@ class Game
   def make_move
     prompt_move
     input = get_input
-    return @quit = true if input.downcase == 'quit'
+    return @quit = true if input == 'quit'
     board.drop(column: input, symbol: current_player.symbol)
   end
 
