@@ -208,5 +208,31 @@ RSpec.describe Game do
         expect(result).to be(true)
       end
     end
+
+    context 'when column number is valid but full' do
+      before do
+        allow(board).to receive(:column_valid?).and_return(true)
+        allow(board).to receive(:column_full?).and_return(true)
+      end
+
+      it 'returns false' do
+        column_no = 5
+        result = game.valid_input?(column_no)
+        expect(result).to be(false)
+      end
+    end
+
+    context 'when column number is invalid' do
+      before do
+        allow(board).to receive(:column_valid?).and_return(false)
+        allow(board).to receive(:column_full?).and_return(true)
+      end
+
+      it 'returns false' do
+        column_no = 5
+        result = game.valid_input?(column_no)
+        expect(result).to be(false)
+      end
+    end
   end
 end
