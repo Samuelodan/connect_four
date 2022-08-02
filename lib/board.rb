@@ -13,15 +13,13 @@ class Board
 
   def display
     system('clear')
-    puts '  1   2   3   4   5   6   7'
-    puts '+———+———+———+———+———+———+———+'
+    puts "  1   2   3   4   5   6   7\n+———+———+———+———+———+———+———+"
     ROWS.each do |row|
       print '|'
       row.each do |idx|
         print " #{grid[idx]} |"
       end
-      puts "\n"
-      puts '+———+———+———+———+———+———+———+'
+      puts "\n+———+———+———+———+———+———+———+"
     end
     puts '  1   2   3   4   5   6   7'
   end
