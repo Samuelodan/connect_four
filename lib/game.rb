@@ -66,8 +66,7 @@ class Game
 
   def get_input
     loop do
-      puts "\n"
-      print '>> '
+      print "\n>> "
       input = gets.chomp
       return input if input == 'quit'
 
@@ -112,8 +111,7 @@ class Game
 
   def collect_name(player)
     system('clear')
-    puts "#{player}, enter your name"
-    print '>> '
+    print "#{player}, enter your name\n\n >> "
     gets.chomp
   end
     
@@ -121,7 +119,7 @@ class Game
     puts <<~HEREDOC
       If you want to play again, enter 'y', otherwise, enter any other key...
     HEREDOC
-    print '>> '
+    print "\n>> "
     response = gets.chomp.downcase
     board.reset if response == 'y'
     play if response == 'y'
