@@ -83,9 +83,9 @@ class Game
 
   def display_error_message(input)
     if !board.column_valid?(input)
-      puts "\e[31menter a valid column number between 1 and 7\e[0m"
+      error_message_for(:invalid_column)
     elsif board.column_full?(column: input)
-      puts "\e[93mthis column is full. Try another column\e[0m"
+      error_message_for(:column_full)
     end
   end
 

@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
 module Display
+  ERROR_MESSAGES = {
+    invalid_column: "\e[31menter a valid column number between 1 and 7\e[0m",
+    column_full: "\e[93mthis column is full. Try another column\e[0m"
+  }.freeze
+
   def introduce
     system('clear')
     puts <<~HEREDOC
@@ -48,5 +53,9 @@ module Display
     Match ended in a tie.
     \e[0m
     HEREDOC
+  end
+
+  def error_message_for(error)
+    puts ERROR_MESSAGES[error]
   end
 end
