@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'grid_lines'
+require_relative './grid_lines'
 
 class Board
   include GridLines
