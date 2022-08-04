@@ -48,6 +48,10 @@ class Board
     column_number.between?(1, last_col)
   end
 
+  def column_invalid?(column_number)
+    !column_valid?(column_number)
+  end
+
   def moves_left?
     grid.any?(' ')
   end

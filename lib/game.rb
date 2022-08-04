@@ -82,7 +82,7 @@ class Game
   end
 
   def display_error_message(input)
-    if !board.column_valid?(input)
+    if board.column_invalid?(input)
       error_message_for(:invalid_column)
     elsif board.column_full?(column: input)
       error_message_for(:column_full)
