@@ -64,6 +64,15 @@ class Game
     puts 'or enter `quit` to exit game.'
   end
 
+  def prompt_move
+    colored_name = {
+      player1 => "\033[1m\e[31m#{current_player.name}\e[0m\033[0m",
+      player2 => "\033[1m\e[37m#{current_player.name}\e[0m\033[0m"
+    }
+    puts "#{colored_name[current_player]}, enter a column number between 1 and 7"
+    puts 'or enter `quit` to exit game.'
+  end
+
   def get_input
     loop do
       print "\n>> "
